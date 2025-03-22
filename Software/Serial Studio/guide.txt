@@ -1,0 +1,2 @@
+Serial Studio is too big to include in this directory.
+Please visit https://github.com/Serial-Studio/Serial-Studio and download the software.
