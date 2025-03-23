@@ -1,0 +1,26 @@
+DESCRIPTION
+
+"You see, wire telegraph is a kind of a very, very long .  You pull his tail in New York and his head is meowing in Los Angeles.  Do you understand this? And radio operates exactly the same way: you send signals here, they receive them there.  The only difference is that there is no ."
+
+Sending data over long distances is like magic, and now you can be a magician with this range of powerful and easy-to-use radio modules. Sure, sometimes you want to talk to a computer (a good time to use WiFi) or perhaps communicate with a Phone (choose Bluetooth Low Energy!) but what if you want to send data very far? Most WiFi, Bluetooth, Zigbee and other wireless chipsets use 2.4GHz, which is great for high speed transfers. If you aren't so concerned about streaming a video, you can use a lower license-free frequency such as 433 or 900 MHz. You can't send data as fast but you can send data a lot farther.'
+
+Also, these packet radios are simpler than WiFi or BLE, you dont have to associate, pair, scan, or worry about connections. All you do is send data whenever you like, and any other modules tuned to that same frequency (and, with the same encryption key) will receive. The receiver can then send a reply back. The modules do packetization, error correction and can also auto-retransmit so its not like you have worry about everything but less power is wasted on maintaining a link or pairing.
+
+These modules are great for use with Arduinos or other microcontrollers, say if you want a sensor node nework or transmit data over a campus or town. The trade off is you need two or more radios, with matching frequencies. WiFi and BT, on the other hand, are commonly included in computers and phones.
+
+These radio modules come in four variants (two modulation types and two frequencies) The RFM69's are easiest to work with, and are well known and understood. The LoRa radios are exciting and more powerful but also more expensive.
+
+This is the 900 MHz radio version, which can be used for either 868MHz or 915MHz transmission/reception - the exact radio frequency is determined when you load the software since it can be tuned around dynamically. We also carry an RFM69HCW 433 MHz version here.These are +20dBm FSK packet radios that have a lot of nice extras in them such as encryption and auto-retransmit. They can go at least 500 meters line of sight using simple wire antennas, probably up to 5Km with directional antennas and settings tweakings
+
+SX1231 based module with SPI interface
++13 to +20 dBm up to 100 mW Power Output Capability (power output selectable in software)
+50mA (+13 dBm) to 150mA (+20dBm) current draw for transmissions, ~30mA during active radio listening.
+Range of approx. 500 meters, depending on obstructions, frequency, antenna and power output
+Create multipoint networks with individual node addresses
+Encrypted packet engine with AES-128
+Packet radio with ready-to-go libraries
+Uses the license-free ISM band: "European ISM" 868MHz or "American ISM" 915MHz
+Use a simple wire antenna or spot for uFL or SMA radio connector
+All radios are sold individually and can only talk to radios of the same part number. E.. RFM69 900 MHz can only talk to RFM69 900 MHz, LoRa 433 MHz can only talk to LoRa 433, etc.
+
+Each radio comes with some header, a 3.3V voltage regulator and levelshifter that can handle 3-5V power and logic so you can use it with 3V or 5V devices. Some soldering is required to attach the header. You will need to cut and solder on a small piece of wire (any solid or stranded core is fine) in order to create your antenna. Optionally you can pick up a uFL or SMA -mount connector and attach an external duck

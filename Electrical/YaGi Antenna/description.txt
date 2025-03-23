@@ -1,0 +1,24 @@
+868MHz 915MHZ Yagi Antenna External Directional Outdoor Aerial High Gain 7dBi N-female for Repeater Booster Amplifier
+
+Features:
+High gain
+Strong directionality
+Strong anti-interference ability
+Realize long-distance communication
+Simple structure and easy disassembly
+Lightweight and durable, easy to install
+High cost performance
+
+Specification:
+Model:Yagi Antenna
+UHF:806-896MHz / 902-928MHz
+Gain:7dBi
+Connector:N Female
+Element:7
+Beam width : H:48 V:40
+SWR: ≤1.5
+Impedance: 50 Ω
+Max Power : 50W
+Size : 430*190*60*mm
+Polarization:Horizontao or Vertical
+Lightning protection: DC grounding
