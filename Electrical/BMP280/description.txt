@@ -1,0 +1,19 @@
+The GY-BMP280 module comes with BMP280 sensor, which is an environmental sensor with temperature, barometric pressure that is the next generation upgrade to the BMP085/BMP180/BMP183.
+This sensor is great for all sorts of weather sensing and can even be used in both I2C and SPI.
+This precision sensor is the best low-cost, precision sensing solution for measuring barometric pressure with ±1 hPa absolute accuracy, and temperature with ±1.0°C accuracy. Because pressure changes with altitude and the pressure measurements are so good, you can also use it as an altimeter with ±1 meter accuracy
+Pin pitch: 2.54mm
+Module size: 11.5mm*15mm
+
+Electrical Specifications of GY-BMP280 Module
+Model: GY-BMP280-3.3
+Chip: BMP280
+Power supply:  3V/3.3V DC
+Peak current: 1.12mA
+Air pressure range : 300-1100hPa (equi. to +9000…-500m above sea level)
+Temperature range: -40 … +85 °C
+Digital interfaces: I²C (up to 3.4 MHz) and SPI (3 and 4 wire, up to 10 MHz)
+Current consumption of sensor BMP280: 2.7µA @ 1 Hz sampling rate
+ 
+
+Brief about GY-BMP280 Module
+The GY-BMP280 Barometer Sensor is a breakout board for Bosch BMP280 high-precision and low-power digital barometer. It can be used to measure temperature and atmospheric pressure accurately. It can be connected to a microcontroller with I2C.
