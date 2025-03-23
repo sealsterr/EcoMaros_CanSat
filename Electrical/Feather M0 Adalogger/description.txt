@@ -1,0 +1,46 @@
+Feather este noua placa de dezvoltare de la Adafruit si, dupa cum sugereaza numele, este subtire si usoara, fiind creata sa devina ultimul standard pentru nucleele microcontrolerelor portabile. Adafruit Feather M0 Adalogger vine ca o abordare a unui datalogger Cortex M0 complet (sau cititor de date) cu USB si incarcarea bateriei integrate. Este un Adafruit Feather M0 cu suport microSD, in centrul Feather M0 aflandu-se un procesor ATSAMD21G18 ARM Cortex M0 cu frecventa de 48MHz si 3.3V tensiune logica, acelasi folosit in Arduino Zero. Chip-ul are 256K Flash (de 8 ori mai mult decat Atmega328 sau 32u4) si 32K RAM (de 16 ori mai mult). In plus, chip-ul vine cu USB integrat pentru abilitatea de programare si depanare USB-la-serial, fara sa necesite un chip ca FTDI.
+ 
+
+Pentru a fi usor de utilizat in proiectele portabile, au fost adaugate un conector pentru baterii Li-Po de 3.7V si posibilitatea de incarcare a bateriilor. Nu ai nevoie, astfel, de baterie, pentru ca va opera foarte bine de la conectorul USB. Totusi, daca ai o baterie, poti sa o iei cu tine si sa reincarci prin USB. Feather va comuta automat pe alimentarea prin USB atunci cand aceasta este disponibila. De asemenea, bateria a fost legata printr-un divizor la un pin analogic ca sa poti masura si monitoriza voltajul si sa stii cand este nevoie sa reincarci.
+ 
+
+Feather M0 Adalogger utilizeaza spatiul liber ramas pentru adaugarea unui microSD si un LED verde:
+ 
+
+LED verde la pinul #8 pentru clipire
+Suport card microSD pentru adaugarea spatiului de stocare dorit, pentru citire si scriere
+
+Placa vine testata si complet asamblata, cu bootloader USB pentru utilizarea imediata cu Arduino IDE. De asemenea, primesti si header pentru lipire atunci cand vrei sa folosesti o placa breadboard. Bateria Li-Po, cardul microSD si cablul USB nu sunt incluse.
+ 
+
+Specificatii:
+ 
+
+Masoara 51mm x 23mm x 8mm fara headerele lipite
+Greutate de numai 5.3 grame
+ATSAMD21G18 @ 48MHz cu 3.3V logica/putere
+256KB FLASH + 32KB RAM
+Fara EEPROM
+Stabilizator de 3.3V cu iesire varf curent de 500mA
+Suport USB nativ; vine cu bootloader USB si depanare prin port serial
+De asemenea, primesti o multime de pini - 20 pini GPIO
+Interfata seriala, I2C, suport SPI
+8 x Pini PWM
+10 x Intrari analogice
+1 x Iesire analogica de 10 biti (DAC)
+Incarcator Li-Po de 100mA incorporat, cu LED indicator de stare
+LED rosu la pinul #13 pentru clipire
+Pin de alimentare/activare
+4 orificii de montaj
+Buton de resetare
+Dimensiune: 22.8mm x 51.6mm x 8mm
+Greutate: 5.3g
+
+Linkuri:
+ 
+
+Tutorial de utilizare
+Descarcari: fisa produsului, schema, fisierele EagleCAD PCB si Fritzing
+Tutorial afisaje MicroPython
+Tutorial de utilizare ATSAMD21 SERCOM pentru mai multe porturi SPI, I2C si serial
+Tutorial debug header pentru Feather [M0]

@@ -1,0 +1,24 @@
+Feather M0 Basic Proto - ATSAMD21 Cortex M0
+
+Specificatii:
+
+Dimensiuni: 51mm x 23 mm x 8mm
+Greutate: 4,6 grame
+ATSAMD21G18@ 48MHz cu logica 3.3V
+256KB FLASH, 32KB de RAM
+32.768 KHz cristal pentru generarea de ceas & RTC
+Regulator 3.3V cu 500mA curent de iesire
+Suport USB nativ, vine cu bootloader USB si depanare port serial
+20 pini GPIO
+Hardware Serial, I2C, SPI
+Iesiri PWM pe toti pinii
+6 x 12-bit intrari analogice
+1 x 10-bit iesiri analogice (DAC)
+Incarcator 100mA LiPo cu LED indicator de stare
+LED rosu pe pinul 13 pentru uz general
+4 gauri de montare
+Buton de resetare
+Link-uri:
+
+Pagina Producatorului
+Tutorial

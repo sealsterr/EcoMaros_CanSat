@@ -1,0 +1,21 @@
+Caracteristici tehnice:
+Tensiune de alimentare: 3.3V - 5V (regulator LDO inclus);
+Tensiune magistrală I2C: 3.3V (MAX);
+Curent: 5mA;
+Range programabil giroscop: ±250, ±500, ±1000, ±2000 o/s;
+Range programabil accelerometru: ±2g, ±4g, ±8g, ±16g;
+Interval măsurare temperatură: -40oC - +85oC;
+Frecvență maximă I2C: 400kHz.
+Dimensiuni: 20mm x 15mm.
+
+Modulul conține un circuit integrat MPU-6050 cu accelerometru, giroscop și senzor de temperatură. Acesta comunică pe interfață I2C, având nevoie de doar 2 conexiuni. Fiecare dispozitiv ce folosește interfața I2C are propria adresă. MPU6050 poate selecta una din două adrese disponibile, legând pinul AD0 la GND sau VCC. Această conexiune este făcută de obicei pe placuța modulului. 
+
+Este util în proiectele dumneavoastră ce au nevoie să detecteze mișcarea și intensitatea ei, cum ar fi jocuri, stabilizare de imagine, step counter.
+
+Pentru a instala bibliotecile necesare utilizării modelului MPU6050 mergeți la pagina: http://cartearduino.ro/v1/link21.1.0
+
+Utilizare împreună cu Arduino
+Accesați folderul “Arduino”, iar de acolo descărcați în format ZIP folderele: I2Cdev si MPU6050. Instalați bibliotecile urmând instrucțiunile descrise în capitolul “Biblioteci în Arduino” (Sketch -> Import Library -> Add .ZIP Library...) și selectați fișierele voastre. După instalarea bibliotecilor puteți găsi un exemplu de program printre sketch-urile demonstrative oferite de Arduino, așa cum este ilustrat în imaginea 1 .
+
+
+Modulul MPU6050 folosește protocolul I2C pentru a comunica cu plăcuța Arduino. Pinul INT poate trimite cereri de întreruperi plăcuței – MPU6050 va anunța astfel apariția unor evenimente speciale. Fiecare dispozitiv ce folosește interfața I2C are propria adresă. MPU6050 poate selecta una din cele două adrese disponibile, legând pinul AD0 la GND sau VCC. Această conexiune este făcută de obicei pe plăcuța modului. Montajul este figurat în imaginea 2. Pentru mai multe detalii, consultați fișa tehnică.
