@@ -40,6 +40,7 @@ Our CanSat was launched from a rocket, reaching an altitude of approximately **1
 - **Analyze air quality parameters** by measuring pollutants such as CO, CO₂, NO₂, and VOC levels.  
 - **Monitor altitude-based variations** in air quality and correlate with temperature/pressure.  
 - **Evaluate sensor efficiency** and compare with standardized environmental datasets.  
+- **Capture high-resolution video footage** during descent using an onboard camera, providing visual data to complement sensor readings and assist in post-mission analysis.  
 
 ## 🛰️ Technical Summary  
 
@@ -50,10 +51,9 @@ Our CanSat consisted of **three primary systems**:
    - Collected, processed, and transmitted environmental data.  
    - Designed to survive high-G forces and impact upon landing.  
 
-2. **The Descent System** (parachute and deployment mechanism):  
+2. **The Descent System** (parachute system):  
    - Ensured **stable descent** for optimal data collection.  
-   - Designed for **predictable landing behavior** to facilitate recovery.  
-   - Tested under real-world conditions with varying payload weights.  
+   - Tested under real-world conditions.  
 
 3. **The Ground Station** (communication and data reception):  
    - Received **live telemetry** from the CanSat.  
@@ -73,8 +73,7 @@ Our CanSat consisted of **three primary systems**:
 2. **Prototype Assembly:** Initial hardware integration and software development.  
 3. **Ground Testing:** Component-level and full-system tests, including **environmental, communication, and structural validation**.  
 4. **Flight Preparation:** Calibration, parachute testing, and mission simulations.  
-5. **Launch & Data Analysis:** Real-world deployment, telemetry collection, and post-flight analysis.  
-
+5. **Launch & Data Analysis:** Real-world deployment, telemetry collection, and post-flight analysis.    
 
 ---
 
