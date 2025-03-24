@@ -290,6 +290,7 @@ RSSI, Packet Number, Latitude, Longitude, GPS Altitude
 ---
 
 # Testing
+You can find additional images, videos and graphs in the `Testing` folder.
 
 ## 1. Frequency test
 
