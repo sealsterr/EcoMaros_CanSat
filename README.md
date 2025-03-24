@@ -260,7 +260,7 @@ Serial.print("\r\n");
 ```
 
 ## Data Processing
-Data is stored in a ```DATALOG.txt``` file, every line representing a value, with a comma as separator. This enables us to use Microsoft Excel to organise data in a more friendly environment, making it compatible with our **Ground Processing Software**.
+Data is stored in a `DATALOG.txt` file, every line representing a value, with a comma as separator. This enables us to use Microsoft Excel to organise data in a more friendly environment, making it compatible with our **Ground Processing Software**.
 
 - CanSat measurement format:
 ```
@@ -273,7 +273,21 @@ RSSI, Packet Number, Latitude, Longitude, GPS Altitude
 ```
 
 - Ground Processing Software:
-In order to visualise and interpret incoming and stored data, our team decided to use [Serial Studio](https://github.com/Serial-Studio/Serial-Studio)
+  
+In order to visualise and interpret incoming and stored data, our team decided to use [Serial Studio](https://github.com/Serial-Studio/Serial-Studio). This program enables us to record, replay and store incoming data, making post-launch data analysis much easier to conduct. During Serial Studio setup, we have to specify which "preset" we want to use. We have created two custom JSON files:
+
+1. `ground_station_live.json`
+    ![image](https://github.com/user-attachments/assets/cbb7d6a8-1102-4d99-b409-d3c9db9a8bfe)
+   
+   - Used during the CanSat competition launch, designed to receive and visualise telemetry data.
+
+2. `ground_station_playback.json`
+    ![image](https://github.com/user-attachments/assets/8c669c74-06ce-4a34-9763-0dd3750603b3)
+
+   - Crucial for documentation and post-launch data showcase.
+   - Played a crucial role when presenting our measured data to the jury.
+   
+Each of these presets are specifically designed to receive the correct amount of data in a set order.
 
 ---
 
@@ -297,7 +311,7 @@ In order to visualise and interpret incoming and stored data, our team decided t
 
 # Contributors
 
-We want to extend our deepest gratitude to everyone who has supported and contributed to our project. Your dedication, hard work, and generosity have been invaluable, and we truly appreciate the effort and time you’ve invested. Without your help, this journey wouldn’t have been possible. Thank you for being a part of our success! ♥️
+>We want to extend our deepest gratitude to everyone who has supported and contributed to our project. Your dedication, hard work, and generosity have been invaluable, and we truly appreciate the effort and time you’ve invested. Without your help, this journey wouldn’t have been possible. Thank you for being a part of our success! ♥️
 
 - **Werner Haraszti - Lico Mecatronic S.R.L.** - technological, financial and equipment support
 - **Fuccaro Miklós** - AutoCAD software coaching, IT support
