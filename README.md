@@ -1,5 +1,9 @@
 # EcoMaros CanSat Project
 
+![GitHub Last Commit](https://img.shields.io/github/last-commit/sealsterr/EcoMaros_CanSat)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ecomaros.cansat)
+
+
 Our team's project for the 2025 CanSat Hungary Competition.
 
 ## Table of Contents
