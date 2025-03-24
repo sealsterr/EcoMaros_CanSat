@@ -1,6 +1,6 @@
 # EcoMaros CanSat Project
 
-![EcoMaros Logo](link_to_logo_image_if_available)
+Our team's project for the 2025 CanSat Hungary Competition.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -14,7 +14,7 @@
 - [Software Architecture](#software-architecture)
   - [Microcontroller Code](#microcontroller-code)
   - [Ground Station Software](#ground-station-software)
-  - [Data Processing and Telemetry](#data-processing-and-telemetry)
+  - [Data Processing and Telemetry](#data-processing)
 - [Testing](#testing)
 - [Contributors](#contributors)
 - [License](#license)
