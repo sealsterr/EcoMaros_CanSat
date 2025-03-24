@@ -22,7 +22,7 @@
 
 ---
 
-# 📡 EcoMaros CanSat – Project Overview
+# Project Overview
 
 ## 🌍 Introduction  
 EcoMaros is a CanSat project developed for the European Space Agency’s CanSat competition. Our mission was to design, build, and launch a fully functional satellite the size of a soda can, carrying out both a **primary mission** (measuring atmospheric temperature and pressure) and a **secondary mission** (environmental air quality analysis).  
