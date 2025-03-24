@@ -22,10 +22,59 @@
 
 ---
 
-## Project Overview
-EcoMaros is an advanced CanSat project designed to collect atmospheric and environmental data during descent. The project is focused on precision telemetry, sensor data collection, and efficient data transmission.
+# 📡 EcoMaros CanSat – Project Overview
 
-This document serves as an in-depth technical guide for developers and contributors, detailing all aspects of the system architecture, software, and hardware design.
+## 🌍 Introduction  
+EcoMaros is a CanSat project developed for the European Space Agency’s CanSat competition. Our mission was to design, build, and launch a fully functional satellite the size of a soda can, carrying out both a **primary mission** (measuring atmospheric temperature and pressure) and a **secondary mission** (environmental air quality analysis).  
+
+Our CanSat was launched from a rocket, reaching an altitude of approximately **1 km** before descending via parachute while continuously transmitting data to our ground station. The data collected was analyzed to extract valuable scientific insights and improve future small-satellite designs.  
+
+## 🛠️ Mission Objectives  
+
+### ✅ **Primary Mission:**  
+- **Measure atmospheric temperature and pressure** throughout the descent.  
+- **Log and transmit real-time data** to the ground station.  
+- **Compare results with trusted meteorological sources** to ensure accuracy.  
+
+### 🌿 **Secondary Mission:**  
+- **Analyze air quality parameters** by measuring pollutants such as CO, CO₂, NO₂, and VOC levels.  
+- **Monitor altitude-based variations** in air quality and correlate with temperature/pressure.  
+- **Evaluate sensor efficiency** and compare with standardized environmental datasets.  
+
+## 🛰️ Technical Summary  
+
+Our CanSat consisted of **three primary systems**:  
+
+1. **The CanSat Payload** (the satellite itself):  
+   - Housed **sensors**, **microcontrollers**, and **power systems**.  
+   - Collected, processed, and transmitted environmental data.  
+   - Designed to survive high-G forces and impact upon landing.  
+
+2. **The Descent System** (parachute and deployment mechanism):  
+   - Ensured **stable descent** for optimal data collection.  
+   - Designed for **predictable landing behavior** to facilitate recovery.  
+   - Tested under real-world conditions with varying payload weights.  
+
+3. **The Ground Station** (communication and data reception):  
+   - Received **live telemetry** from the CanSat.  
+   - Used **LoRa communication** at 868 MHz.  
+   - Displayed data in **real-time dashboards** for analysis.  
+
+## 🔬 Innovation & Unique Features  
+
+- **Hybrid Communication System:** Combined LoRaWAN for real-time transmission with onboard SD card storage for redundancy.  
+- **Optimized Air Quality Sensor Placement:** Minimized contamination and external interferences.  
+- **Advanced Software Architecture:** Supported real-time data visualization and predictive modeling.  
+- **Robust Mechanical Design:** Impact-resistant casing, secure wiring, and heat-resistant materials ensured durability.  
+
+## 🚀 Development Phases  
+
+1. **Design & Planning:** Component selection, CAD modeling, and circuit design.  
+2. **Prototype Assembly:** Initial hardware integration and software development.  
+3. **Ground Testing:** Component-level and full-system tests, including **environmental, communication, and structural validation**.  
+4. **Flight Preparation:** Calibration, parachute testing, and mission simulations.  
+5. **Launch & Data Analysis:** Real-world deployment, telemetry collection, and post-flight analysis.  
+
 
 ---
 
