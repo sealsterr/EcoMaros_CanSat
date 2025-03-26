@@ -174,7 +174,7 @@ The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nyl
 
 You can find additional images, videos, and graphs in the `Testing` folder within the main project repository.
 
-## 1. 📶 Frequency Test <a name="frequency-test"></a>
+## 1. 📶 Frequency Test
 
 **Purpose:** To verify that the RFM69HCW radio module transmits within the designated 868 MHz ISM band, ensuring compliance with regulations.
 *   **Procedure:**
@@ -188,7 +188,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
 *   **Status:** Successful ✅
     ![freq_test_C](https://github.com/user-attachments/assets/1ecc7824-6a4d-4b2e-9f40-d2e22d12bf22)
 
-## 2. 🏋️‍♂️ Load Test <a name="load-test"></a>
+## 2. 🏋️‍♂️ Load Test
 
 **Purpose:** To ensure the parachute attachment point can withstand the forces experienced during deployment and descent.
 *   **Procedure:**
@@ -200,8 +200,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
         *   The parachute attachment securely held the load without any visible weakening, ensuring that it will perform reliably under real launch conditions
 *   **Status:** Successful ✅
 
-## 3. 🌡️& 💧 Temperature & Pressure Sensor Test <a name="temperature--pressure-sensor-test"></a>
-
+## 3. Temperature & Pressure Sensor Test
 **Purpose:** Validate accuracy of the BMP280 measuring unit.
 *   **Procedure:**
     *   Power on the CanSat, including the BMP280 sensor
@@ -220,7 +219,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
  2025-03-20 | 10:00:20 | 22.7            | 1012.5          | 22.1                 | 1012.1                |
 
 
-## 4. 📸 Camera Test <a name="camera-test"></a>
+## 4. 📸 Camera Test
 
 **Purpose:** To evaluate the performance and stability of the ESP32, by taking multiple tests in different scenarios.
 *   **Procedure:**
@@ -234,7 +233,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
 
 [YouTube link](https://www.youtube.com/watch?v=rytZMgvs1aI)
 
-## 5. 💨 Air Quality Sensor Test <a name="air-quality-sensor-test"></a>
+## 5. 💨 Air Quality Sensor Test
 
 **Purpose:** To verify the functionality and responsiveness of our air quality sensor. We conducted a controlled test by exposing it to varying air conditions and analyzing the received data, the test lasted 10 seconds.
 *   **Procedure:**
@@ -244,19 +243,10 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
 
 *   **Status:** Successful ✅
 
-  1 | 558	11 | 1480	21| 1645	31 | 1213	41 | 701
-  2 | 554	12 | 1458 22| 1414	32 | 1489	42 | 624
-  3 | 563	13 | 1324	23| 1740	33 | 1517	43 | 592
-  4 | 554	14 | 1673	24| 1640	34 | 1354	44 | 569
-  5 | 563	15 | 1523	25| 1503	35 | 1263	45 | 559
-  6 | 551	16 | 1781	26| 1314	36 | 1135	46 | 564
-  7 | 567	17 | 1531	27| 1237	37 | 1098	47 | 563
-  8 | 555	18 | 1454	28| 1549	38 | 899	48 |-562
-  9 | 568	19 | 1510	29| 1233	39 | 759	49 |-560
-  10 | 554	20 | 1968	30| 1764	40 | 675	50 |-554
+![airquality](https://github.com/user-attachments/assets/b4cce326-8b2d-4ad9-a5ba-abd5c79580ea)
 
 
-## 6. 🪂 Parachute Test <a name="parachute-test"></a>
+## 6. 🪂 Parachute Test
 
 **Purpose:** To evaluate the deployment and descent characteristics of our parachute system.
 
@@ -269,7 +259,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
 
   ![parachute deployment](https://github.com/user-attachments/assets/d7375626-aacd-44d6-874a-f4595dd78d21)
 
-## 7. ⚙️ Acceleration Test <a name="acceleration-test"></a>
+## 7. ⚙️ Acceleration Test
 *   **Purpose:** Assess the structural integrity of the CanSat under high acceleration forces by using a power drill.
 *   **Procedure:** Attach the CanSat to a power drill and spinning it at high speed for a specified duration. By measuring the number of rotations within a set time frame, we calculated the angular velocity
 *   **Status:** Successful. ✅
