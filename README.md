@@ -49,12 +49,12 @@ Our CanSat was launched from a rocket, reaching an altitude of approximately **1
 
 Our CanSat consisted of **three primary systems**:  
 
-1. **The CanSat Payload** (the satellite itself):  
+1. **The CanSat** (the satellite itself):  
    - Housed **sensors**, **microcontrollers**, and **power systems**.  
    - Collected, processed, and transmitted environmental data.  
    - Designed to survive high-G forces and impact upon landing.  
 
-2. **The Descent System** (parachute system):  
+2. **The Recovery System** (parachute):  
    - Ensured **stable descent** for optimal data collection.  
    - Tested under real-world conditions.  
 
@@ -88,7 +88,7 @@ The EcoMaros CanSat consists of multiple integrated subsystems, each playing a c
 
 The following diagram illustrates the overall architecture of the CanSat system, highlighting interactions between subsystems:  
 
-![System Architecture Diagram](link_to_extracted_image_from_pdf)  
+![diagram](https://github.com/user-attachments/assets/65de76ea-d409-41e1-a82c-555c2a933c00)
 
 ## 🛰️ Subsystem Overview  
 
@@ -110,7 +110,7 @@ The heart of the CanSat is the **Adafruit Feather M0 Adalogger**, which:
 - Handles real-time telemetry transmission.  
 - Logs data onto the onboard SD card.  
 
-![Microcontroller and Wiring](link_to_microcontroller_diagram_from_pdf)  
+![Microcontroller]()  
 
 ### 3️⃣ **Sensor Suite**  
 EcoMaros is equipped with a **diverse set of sensors** to ensure comprehensive environmental monitoring:  
@@ -169,27 +169,104 @@ IDE KEP A CHARTROL
 
 # Hardware Components
 
-### Main Board
-The main board houses the **microcontroller**, power management circuit, sensor interfaces, and communication modules. The microcontroller used is the **[insert model]**, chosen for its low power consumption and real-time processing capabilities.
+This section provides a deep dive into the hardware components selected for the EcoMaros CanSat, explaining the rationale behind their choices and key specifications.
 
-### Sensors
-The EcoMaros CanSat features multiple sensors for data collection:
-- **Barometric Pressure Sensor:** [insert model], measures altitude and pressure.
-- **Temperature and Humidity Sensor:** [insert model], ensures accurate environmental readings.
-- **Accelerometer and Gyroscope:** [insert model], used for motion tracking.
-- **Magnetometer:** [insert model], helps in orientation detection.
-- **GPS Module:** [insert model], provides real-time positioning.
+### 1️⃣ Main Board
 
-### Communication Systems
-- **Radio Module:** The CanSat uses an [insert radio model] operating at [frequency] MHz for real-time telemetry transmission.
-- **Antenna:** A custom-designed dipole antenna ensures reliable data transmission.
+*   **Component:** Adafruit Feather M0 Adalogger
+*   **Microcontroller:** ATSAMD21G18 ARM Cortex M0+
+*   **Key Features:**
+    *   **Low Power Consumption:** Essential for extending mission duration. Operates efficiently, maximizing battery life.
+    *   **Integrated SD Card Interface:** Allows for reliable onboard data logging, critical as a backup and for post-flight analysis.
+    *   **Arduino IDE Compatibility:** Simplifies software development and debugging.
+    *   **Compact Form Factor:** Fits well within the CanSat's size constraints.
+*   **Role:** The central processing unit, managing all sensor data acquisition, processing, and transmission. It controls power distribution and ensures synchronized operation of all subsystems.
+*   **Image:** \[Link to Image of Adafruit Feather M0 Adalogger]
 
-### Power System
-- **Battery:** A lightweight [insert battery type and capacity] powers the CanSat.
-- **Voltage Regulation:** A [insert regulator model] ensures stable power delivery.
+### 2️⃣ Sensors
 
-### Payload and Deployment Mechanism
-The payload consists of a scientific experiment designed to analyze environmental parameters during descent. A servo mechanism controls the deployment of the parachute.
+*   We selected the following sensors for our primary and secondary missions:
+
+    *   **2.1 Barometric Pressure and Temperature Sensor (Primary Mission):**
+        *   **Component:** BMP280
+        *   **Key Features:**
+            *   **High Accuracy:** Provides precise altitude and temperature readings, crucial for primary mission objectives.
+            *   **Low Power Consumption:** Minimizes impact on battery life.
+            *   **Small Size:** Facilitates easy integration into the CanSat's limited space.
+        *   **Role:** Measures atmospheric pressure and temperature during descent, providing key data for altitude determination and weather analysis.
+        *   **Image:** \[Link to Image of BMP280 Sensor]
+
+    *   **2.2 Air Quality Sensor (Secondary Mission):**
+        *   **Component:** MQ135
+        *   **Key Features:**
+            *   **Broad Spectrum Detection:** Detects a wide range of air pollutants, including NH3, NOx, alcohol, benzene, smoke, and CO2.
+            *   **Analog Output:** Simple interface for easy data acquisition.
+        *   **Role:** Monitors air quality during descent, providing insights into environmental conditions.
+        *   **Image:** \[Link to Image of MQ135 Sensor]
+     
+    *   **2.2 ESP32-CAM (Secondary Mission):**
+        *   **Component:** AI-Thinker ESP32 CAM
+        *   **Key Features:**
+            *   **Integrated Camera:** Enables high-resolution video capture during descent.
+            *   **Standalone Operation:** Functions independently of the main microcontroller for increased reliability.
+            *   **Onboard Storage:** Stores video data on a dedicated SD card.
+        *   **Role:** Captures visual data to complement sensor readings, providing a visual record of the CanSat's descent and the surrounding environment.
+        *    **Features** It also uses **motion detection** to store only the necessary data
+        *   **Image:** \[Link to Image of ESP32-CAM Module]
+
+    *   **2.3 Accelerometer and Gyroscope:**
+        *   **Component:** MPU6050
+        *   **Key Features:**
+            *   **6-Axis Measurement:** Provides comprehensive motion tracking data.
+            *   **Digital Output:** Easy interface with the microcontroller.
+            *   **Low Power Consumption:** Ensures minimal drain on the power supply.
+        *   **Role:** Measures acceleration and angular velocity, providing data on the CanSat's orientation and stability during flight.
+        *   **Image:** \[Link to Image of MPU6050 Sensor]
+
+    *   **2.4 GPS Module:**
+        *   **Component:** DFRobot Gravity GNSS
+        *   **Key Features:**
+            *   **High Sensitivity:** Enables accurate location tracking.
+            *   **Compact Size:** Integrates easily into the CanSat.
+        *   **Role:** Provides real-time location data, crucial for recovery after landing.
+        *   **Image:** \[Link to Image of DFRobot Gravity GNSS Module]
+
+### 3️⃣ Communication Systems
+
+*   **Component:** RFM69HCW 868 MHz Radio Module
+*   **Key Features:**
+    *   **LoRa Modulation:** Provides long-range, low-power communication.
+    *   **Configurable Frequency:** Allows for adjustment to avoid interference.
+    *   **Compact Size:** Facilitates integration into the CanSat.
+*   **Role:** Transmits telemetry data to the ground station, enabling real-time monitoring of sensor readings.
+*   **Image:** \[Link to Image of RFM69HCW Radio Module]
+*    **Antenna:** A custom-designed dipole antenna ensures reliable data transmission.
+     *   **Key Features:**
+        *   **5 dBi gain**: Enables optimal operation
+        *   **868Mhz freq**: Ensures long-range, low-power communication with Ground Control
+
+### 4️⃣ Power System
+
+*   To ensure reliable and redundant power, we utilize a dual-battery system:
+
+    *   **4.1 Main Battery:**
+        *   **Type:** LiPo
+        *   **Capacity:** 2000mAh
+        *   **Voltage:** 3.7V
+        *   **Role:** Powers the microcontroller, sensors, and radio module.
+    *   **4.2 Camera Battery:**
+        *   **Type:** LiPo
+        *   **Capacity:** 1000mAh
+        *   **Voltage:** 3.7V
+        *   **Role:** Powers the onboard camera, providing independent power for image capture.
+*   A **Step-Up Voltage Booster** is used to ensure that the onboard camera receives stable voltage for optimal performance.
+
+### 5️⃣ Recovery System - Parachute
+
+*    A **Metal Hook** is used to connect the CanSat with the parachute, ensuring the safety and durability of the tether
+*    The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nylon**. It is attached using a **tear-resistant tether system**, capable of withstanding up to 50N of force.
+  *   **Key Features:**
+       *   **Orange and white** for high visiblity
 
 ---
 
@@ -288,23 +365,109 @@ RSSI, Packet Number, Latitude, Longitude, GPS Altitude
   - Played a crucial role when presenting our measured data to the jury.\
     ![image](https://github.com/user-attachments/assets/8c669c74-06ce-4a34-9763-0dd3750603b3)
 ---
-
 # Testing
-You can find additional images, videos and graphs in the `Testing` folder.
 
-## 1. Frequency test
+You can find additional images, videos, and graphs in the `Testing` folder within the main project repository.
 
-## 2. Load test
+## 1. Frequency Test
 
-## 3. Temperature & pressure sensor test
+**Purpose:** To verify that the RFM69HCW radio module transmits within the designated 868 MHz ISM band, ensuring compliance with regulations.
+*   **Procedure:**
+    *   Connect the CanSat to a power source and activate telemetry transmission.
+    *   Use a spectrum analyzer (Rigol DSA815) to capture the transmission spectrum.
 
-## 4. Camera test
+*   **Expected Results:**
+    *   Transmission centered precisely at 868.000 MHz, confirmed by the captured spectrum using the Rigol DSA815 Spectrum Analyzer.
+    *   The captured spectrum confirms that our transmission is centered precisely at 868.000 MHz, with the signal strength peaking at -21.59 dBm, well within the acceptable limits for ISM-band operations
+    *   The noise floor remains low, ensuring clean and stable communication
+*   **Status:** Successful ✅
+  ![freq_test_C](https://github.com/user-attachments/assets/1ecc7824-6a4d-4b2e-9f40-d2e22d12bf22)
 
-## 5. Air quality sensor test
+## 2. Load Test
 
-## 6. Parachute test
+**Purpose:** To ensure the parachute attachment point can withstand the forces experienced during deployment and descent.
+*   **Procedure:**
+    *   Attach the parachute to the CanSat.
+    *   Connect the parachute tether to a weight equivalent to 5 kg
+    *   Suspended the weight for an extended period while inspecting for any signs of material fatigue, deformation, or failure
 
-## 7. Acceleration test
+*   **Expected Results:**
+        *   The parachute attachment securely held the load without any visible weakening, ensuring that it will perform reliably under real launch conditions
+*   **Status:** Successful ✅
+
+## 3. Temperature & Pressure Sensor Test
+
+**Purpose:** Validate accuracy of the BMP280 measuring unit.
+*   **Procedure:**
+    *   Power on the CanSat, including the BMP280 sensor
+    *   Log initial measurements to textfile
+    *   Compare its readings with established weather data, sourced from reputable meteorological websites
+
+*   **Expected Results:**
+    *   Values aligned within an acceptable margin of error, confirming the sensors' calibration and accuracy.
+
+*   **Status:** Successful ✅
+
+   Date     | Time     | Temperature (°C) | Pressure (hPa) | External Temp (°C) | External Pressure (hPa) |
+ -------- | -------- | --------------- | --------------- | -------------------- | ----------------------- |
+ 2025-03-20 | 10:00:00 | 22.5            | 1012.3          | 22.0                 | 1012.0                |
+ 2025-03-20 | 10:00:10 | 22.6            | 1012.4          | 22.0                 | 1012.0                |
+ 2025-03-20 | 10:00:20 | 22.7            | 1012.5          | 22.1                 | 1012.1                |
+
+## 4. Camera Test
+
+**Purpose:** To evaluate the performance and stability of the ESP32, by taking multiple tests in different scenarios.
+*   **Procedure:**
+    *   Moving up and down the stairs, in order to simulate real-time CanSat movement
+    *   Mount ESP32 Cam module to the CanSat, and recording the footage
+    *   Analyzing the footage, is it clear and without interruptions
+*   **Expected Results:**
+    *   The camera effectively handled vibrations and sudden shifts
+    *   The camera operated continuously within the expected mission duration, without overheating or interruptions.
+*   **Status:** Successful ✅
+  
+  [YouTube link](https://www.youtube.com/watch?v=rytZMgvs1aI)
+
+## 5. Air Quality Sensor Test
+
+**Purpose:** To verify the functionality and responsiveness of our air quality sensor. We conducted a controlled test by exposing it to varying air conditions and analyzing the received data, the test lasted 10 seconds.
+*   **Procedure:**
+    *   Place CanSat near exhaust source to simulate polluted conditions, and log all the data
+*   **Expected Result:**
+    *   Sensor data showed a response to the change, indicating a significant deviation from the baseline. Finally, we returned the CanSat to clean air, where the sensor readings gradually stabilized back to their initial values
+
+*   **Status:** Successful ✅
+
+  1 | 558 11 | 1480 21| 1645 31 | 1213 41 | 701
+  2 | 554 12 | 1458 22| 1414 32 | 1489 42 | 624
+  3 | 563 13 | 1324 23| 1740 33 | 1517 43 | 592
+  4 | 554 14 | 1673 24| 1640 34 | 1354 44 | 569
+  5 | 563 15 | 1523 25| 1503 35 | 1263 45 | 559
+  6 | 551 16 | 1781 26| 1314 36 | 1135 46 | 564
+  7 | 567 17 | 1531 27| 1237 37 | 1098 47 | 563
+  8 | 555 18 | 1454 28| 1549 38 | 899 48 |-562
+  9 | 568 19 | 1510 29| 1233 39 | 759 49 |-560
+  10 | 554 20 | 1968 30| 1764 40 | 675 50 |-554
+
+## 6. Parachute Test
+
+**Purpose:** To evaluate the deployment and descent characteristics of our parachute system.
+
+*   **Procedure:**
+     * Pack parachute, packing the parachute in its folded and secured state to simulate real launch conditions
+     * Throw CanSat from the sky, conduct a field test using an older 3D-printed dummy version of the CanSat
+     *Upon release, the parachute successfully unfolded, stabilizing the descent and demonstrating the effectiveness of both the packing method and the attachment points, the parachute's deployment in real world conditions
+
+*   **Status:** Successful ✅
+
+![image](https://github.com/user-attachments/assets/d7375626-aacd-44d6-874a-f4595dd78d21)
+
+## 7. Acceleration Test
+*   **Purpose:** Assess the structural integrity of the CanSat under high acceleration forces by using a power drill.
+*   **Procedure:** Attach the CanSat to a power drill and spinning it at high speed for a specified duration. By measuring the number of rotations within a set time frame, we calculated the angular velocity
+*   **Status:** Successful. ✅
+
+  [YouTube link](https://youtu.be/aheQlWmyFRo)
 
 ---
 
