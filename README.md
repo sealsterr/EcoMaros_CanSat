@@ -266,7 +266,7 @@ This section provides a deep dive into the hardware components selected for the 
 
 # Software Architecture
 
-## Microcontroller Code 
+## 💻 Microcontroller Code 
 
 The firmware running on the microcontroller handles sensor data acquisition, processing, and transmission. Key functionalities include:
 - Initialization of sensors and communication protocols.
@@ -318,7 +318,7 @@ packet_str.concat(String(lon.lonitudeDegree, 6) + ",");
 packet_str.concat(String(high, 1) + ",");
 ```
 
-## Ground Station Software
+## 📡 Ground Station Software
 
 The ground station software receives telemetry data and prints it on the Serial Monitor, adding an additional RSSI value.
 ```c
@@ -332,7 +332,7 @@ Serial.print((char*)buf);
 Serial.print("\r\n");
 ```
 
-## Data Processing
+## 📊 Data Processing
 
 Data is stored in a `DATALOG.txt` file, every line representing a value, with a comma as separator. This enables us to use Microsoft Excel to organise data in a more friendly environment, making it compatible with our **Ground Processing Software**.
 
@@ -349,14 +349,14 @@ Data is stored in a `DATALOG.txt` file, every line representing a value, with a 
 - Ground Processing Software:\
   In order to visualise and interpret incoming and stored data, our team decided to use [Serial Studio](https://github.com/Serial-Studio/Serial-Studio). This program enables us to record, replay and store incoming data, making post-launch data analysis much easier to conduct. During Serial Studio setup, we have to specify which "preset" we want to use. We have created two custom JSON files:
 
-  - `ground_station_live.json`\
-    Used during the CanSat competition launch, designed to receive and visualise telemetry data.
-    ![code1](https://github.com/user-attachments/assets/5e6bfd6b-c791-4a83-976a-7d4536bb72e7)
+  - `ground_station_live.json`
+    - Used during the CanSat competition launch, designed to receive and visualise telemetry data.\
+  ![code1](https://github.com/user-attachments/assets/5e6bfd6b-c791-4a83-976a-7d4536bb72e7)
 
-  - `ground_station_playback.json`\
+  - `ground_station_playback.json`
     - Crucial for documentation and post-launch data showcase.
     - Played a crucial role when presenting our measured data to the jury.\
-    ![code2](https://github.com/user-attachments/assets/bf371e6f-122e-4ea0-8766-c9736de00dd3)
+  ![code2](https://github.com/user-attachments/assets/bf371e6f-122e-4ea0-8766-c9736de00dd3)
 
 # Testing
 
