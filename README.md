@@ -110,7 +110,7 @@ The heart of the CanSat is the **Adafruit Feather M0 Adalogger**, which:
 - Handles real-time telemetry transmission.  
 - Logs data onto the onboard SD card.  
 
-![Microcontroller]()  
+![microcontroller](https://github.com/user-attachments/assets/92933c8d-502d-404f-8992-38a6901a05bf)  
 
 ### 3️⃣ **Sensor Suite**  
 EcoMaros is equipped with a **diverse set of sensors** to ensure comprehensive environmental monitoring:  
@@ -120,14 +120,16 @@ EcoMaros is equipped with a **diverse set of sensors** to ensure comprehensive e
 | **Barometric Pressure & Temperature Sensor** | Measures altitude and air temperature | BMP280 |  
 | **Air Quality Sensor** | Detects pollutants (CO₂, NO₂, VOCs) | MQ135 |  
 | **Accelerometer & Gyroscope** | Measures orientation, tilt, and G-forces | MPU6050 |  
-| **GPS Module** | Tracks real-time location and altitude | DFRobot Gravity GNSS |  
+| **GPS Module** | Tracks real-time location and altitude | DFRobot Gravity GNSS |
+| **Camera** | Records footage during the mission | ESP32 CAM |  
+
+![sensors](https://github.com/user-attachments/assets/a492b1d1-ece1-44d0-be50-1a7901423502)\
+![camera](https://github.com/user-attachments/assets/152019c6-4759-46c5-b4ce-38b5a3c0613f)\
 
 **Data Collection & Processing:**  
 - All sensor data is processed **every 200ms** and stored in CSV format.  
-- In case of radio failure, the data is logged to an **onboard SD card** for post-flight analysis.  
+- In case of radio failure, the data is alos logged to an **onboard SD card** for post-flight analysis.  
 - The onboard motion-detecting camera captures video data separately.  
-
-![Sensor Integration](link_to_sensor_wiring_image_from_pdf)  
 
 ### 4️⃣ **Communication System**  
 The CanSat transmits real-time telemetry data using an **RFM69HCW 868 MHz radio module**, connected to a **5 dBi dipole antenna**.  
@@ -142,9 +144,9 @@ The CanSat transmits real-time telemetry data using an **RFM69HCW 868 MHz radio 
 - Configurable transmission frequency for interference mitigation.  
 - Ground station software displays real-time telemetry graphs.  
 
-![Radio Communication System](link_to_radio_module_diagram_from_pdf)  
+![radio]()  
 
-### 5️⃣ **Recovery & Descent System**  
+### 5️⃣ **Recovery System**  
 The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nylon**, attached using a **tear-resistant tether system**.  
 
 **Parachute Deployment Sequence:**  
@@ -157,13 +159,7 @@ The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nyl
 - **Load-tested connection system** capable of withstanding **50N of force**.  
 - High-visibility **orange and white** color for easy retrieval.  
 
-![Parachute System](link_to_parachute_test_image_from_pdf)  
-
-## 🔄 Data Flow Diagram  
-
-The diagram below outlines the data collection, transmission, and logging process within the CanSat system:
-
-IDE KEP A CHARTROL
+![Parachute System](https://github.com/user-attachments/assets/70175fc9-f2ab-4462-8e77-28a96de25793)
 
 ---
 
