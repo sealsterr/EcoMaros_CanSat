@@ -257,7 +257,7 @@ You can find additional images, videos, and graphs in the `Testing` folder withi
 
 *   **Status:** Successful ✅
 
-  ![parachute deployment](https://github.com/user-attachments/assets/d7375626-aacd-44d6-874a-f4595dd78d21)
+  [YouTube link]([https://github.com/user-attachments/assets/d7375626-aacd-44d6-874a-f4595dd78d21](https://youtu.be/ZkYDVDR--aM))
 
 ## 7. ⚙️ Acceleration Test
 *   **Purpose:** Assess the structural integrity of the CanSat under high acceleration forces by using a power drill.
