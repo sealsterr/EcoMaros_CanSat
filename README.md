@@ -170,6 +170,195 @@ The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nyl
 
 ---
 
+# Hardware Components
+
+This section provides a deep dive into the hardware components selected for the EcoMaros CanSat, explaining the rationale behind their choices and key specifications.
+
+### 1️⃣ Main Board <a name="main-board"></a>
+
+*   **Component:** Adafruit Feather M0 Adalogger
+*   **Microcontroller:** ATSAMD21G18 ARM Cortex M0+
+*   **Key Features:**
+    *   **Low Power Consumption:** Essential for extending mission duration. Operates efficiently, maximizing battery life.
+    *   **Integrated SD Card Interface:** Allows for reliable onboard data logging, critical as a backup and for post-flight analysis.
+    *   **Arduino IDE Compatibility:** Simplifies software development and debugging.
+    *   **Compact Form Factor:** Fits well within the CanSat's size constraints.
+*   **Role:** The central processing unit, managing all sensor data acquisition, processing, and transmission. It controls power distribution and ensures synchronized operation of all subsystems.
+
+### 2️⃣ Sensors <a name="sensors"></a>
+
+*   We selected the following sensors for our primary and secondary missions:
+
+    *   **2.1 Barometric Pressure and Temperature Sensor (Primary Mission):**
+        *   **Component:** BMP280
+        *   **Key Features:**
+            *   **High Accuracy:** Provides precise altitude and temperature readings, crucial for primary mission objectives.
+            *   **Low Power Consumption:** Minimizes impact on battery life.
+            *   **Small Size:** Facilitates easy integration into the CanSat's limited space.
+        *   **Role:** Measures atmospheric pressure and temperature during descent, providing key data for altitude determination and weather analysis.
+
+    *   **2.2 Air Quality Sensor (Secondary Mission):**
+        *   **Component:** MQ135
+        *   **Key Features:**
+            *   **Broad Spectrum Detection:** Detects a wide range of air pollutants, including NH3, NOx, alcohol, benzene, smoke, and CO2.
+            *   **Analog Output:** Simple interface for easy data acquisition.
+        *   **Role:** Monitors air quality during descent, providing insights into environmental conditions.
+     
+    *   **2.2 ESP32-CAM (Secondary Mission):**
+        *   **Component:** AI-Thinker ESP32 CAM
+        *   **Key Features:**
+            *   **Integrated Camera:** Enables high-resolution video capture during descent.
+            *   **Standalone Operation:** Functions independently of the main microcontroller for increased reliability.
+            *   **Onboard Storage:** Stores video data on a dedicated SD card.
+        *   **Role:** Captures visual data to complement sensor readings, providing a visual record of the CanSat's descent and the surrounding environment.
+        *    **Features** It also uses **motion detection** to store only the necessary data
+
+    *   **2.3 Accelerometer and Gyroscope:**
+        *   **Component:** MPU6050
+        *   **Key Features:**
+            *   **6-Axis Measurement:** Provides comprehensive motion tracking data.
+            *   **Digital Output:** Easy interface with the microcontroller.
+            *   **Low Power Consumption:** Ensures minimal drain on the power supply.
+        *   **Role:** Measures acceleration and angular velocity, providing data on the CanSat's orientation and stability during flight.
+
+    *   **2.4 GPS Module:**
+        *   **Component:** DFRobot Gravity GNSS
+        *   **Key Features:**
+            *   **High Sensitivity:** Enables accurate location tracking.
+            *   **Compact Size:** Integrates easily into the CanSat.
+        *   **Role:** Provides real-time location data, crucial for recovery after landing.
+
+### 3️⃣ Communication Systems
+
+*   **Component:** RFM69HCW 868 MHz Radio Module
+*   **Key Features:**
+    *   **LoRa Modulation:** Provides long-range, low-power communication.
+    *   **Configurable Frequency:** Allows for adjustment to avoid interference.
+    *   **Compact Size:** Facilitates integration into the CanSat.
+*   **Role:** Transmits telemetry data to the ground station, enabling real-time monitoring of sensor readings.
+*    **Antenna:** A custom-designed dipole antenna ensures reliable data transmission.
+     *   **Key Features:**
+        *   **5 dBi gain**: Enables optimal operation
+        *   **868Mhz freq**: Ensures long-range, low-power communication with Ground Control
+
+*   To ensure reliable and redundant power, we utilize a dual-battery system:
+
+    *   **4.1 Main Battery:**
+        *   **Type:** LiPo
+        *   **Capacity:** 2000mAh
+        *   **Voltage:** 3.7V
+        *   **Role:** Powers the microcontroller, sensors, and radio module.
+    *   **4.2 Camera Battery:**
+        *   **Type:** LiPo
+        *   **Capacity:** 1000mAh
+        *   **Voltage:** 3.7V
+        *   **Role:** Powers the onboard camera, providing independent power for image capture.
+*   A **Step-Up Voltage Booster** is used to ensure that the onboard camera receives stable voltage for optimal performance.
+
+### 5️⃣ Recovery System - Parachute
+
+*    A **Metal Hook** is used to connect the CanSat with the parachute, ensuring the safety and durability of the tether
+*    The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nylon**. It is attached using a **tear-resistant tether system**, capable of withstanding up to 50N of force.
+  *   **Key Features:**
+       *   **Orange and white** for high visiblity
+
+---
+
+# Software Architecture
+
+## Microcontroller Code 
+
+The firmware running on the microcontroller handles sensor data acquisition, processing, and transmission. Key functionalities include:
+- Initialization of sensors and communication protocols.
+  
+  ```c
+  void setup() {
+    Serial.begin(9600);
+  
+    // initialize modules
+    init_radio_module();
+    init_bmp_module();
+    init_mpu_module();
+    init_mq_module();
+    init_sd_card();
+    init_gnss_module();
+  }
+- Real-time data acquisition and processing
+
+```c
+sensors_event_t a; // m/s^2
+sensors_event_t g; // rad/s
+sensors_event_t temp; // C
+
+mpu.getEvent(&a, &g, &temp);
+
+sTim_t date = gnss.getDate(); // Date
+sTim_t utc = gnss.getUTC(); // UTC Time
+sLonLat_t lat = gnss.getLat(); // Latitude
+sLonLat_t lon = gnss.getLon(); // Longitude
+double high = gnss.getAlt(); // Altitude - m
+double cog = gnss.getCog(); // Course over Ground - Degrees
+double sog = gnss.getSog() * 0.514; // Speed over Ground - m/s
+
+float temperature = bmp.readTemperature(); // C
+float pressure = bmp.readPressure() / 100; // hPa
+float altitude = bmp.readAltitude(1015.24); // m
+float airquality = analogRead(11); // PPM
+
+float gforce = sqrt((a.acceleration.x * a.acceleration.x) + (a.acceleration.y * a.acceleration.y) + (a.acceleration.z * a.acceleration.z)) - 11;
+// after testing we found that during a state of rest the sensor measured 11G's, so
+```
+- Transmission of telemetry data
+
+```c
+String packet_str = "";
+packet_str.concat(String(String(packetnum, DEC) + ","));
+packet_str.concat(String(lat.latitudeDegree, 6) + ",");
+packet_str.concat(String(lon.lonitudeDegree, 6) + ",");
+packet_str.concat(String(high, 1) + ",");
+```
+
+## Ground Station Software
+
+The ground station software receives telemetry data and prints it on the Serial Monitor, adding an additional RSSI value.
+
+```c
+// print received data with added RSSI value
+buf[len] = 0;
+
+Serial.print("$");
+Serial.print(rf69.lastRssi(), DEC);
+Serial.print(",");
+Serial.print((char*)buf);
+Serial.print("\r\n");
+```
+
+## Data Processing
+
+Data is stored in a `DATALOG.txt` file, every line representing a value, with a comma as separator. This enables us to use Microsoft Excel to organise data in a more friendly environment, making it compatible with our **Ground Processing Software**.
+
+- CanSat measurement format
+  ```
+  Packet Number, Date, Time, Course over Ground, Speed over Ground, Temperature, Pressure, Air Quality, Latitude, Longitude, GPS Altitude, Accelerometer X-Y-Z & Gyroscope X-Y-Z, G-Force, BMP Altitude
+  ```
+
+- Telemetry format:
+  ```
+  RSSI, Packet Number, Latitude, Longitude, GPS Altitude
+  ```
+
+- Ground Processing Software:
+  In order to visualise and interpret incoming and stored data, our team decided to use [Serial Studio](https://github.com/Serial-Studio/Serial-Studio). This program enables us to record, replay and store incoming data, making post-launch data analysis much easier to conduct. During Serial Studio setup, we have to specify which "preset" we want to use. We have created two custom JSON files:
+
+  1. `ground_station_live.json`\
+    Used during the CanSat competition launch, designed to receive and visualise telemetry data.
+    ![code1](https://github.com/user-attachments/assets/5e6bfd6b-c791-4a83-976a-7d4536bb72e7)
+
+  2. `ground_station_playback.json`
+    - Crucial for documentation and post-launch data showcase.
+    - Played a crucial role when presenting our measured data to the jury.
+    ![code2](https://github.com/user-attachments/assets/bf371e6f-122e-4ea0-8766-c9736de00dd3)
+
 # Testing
 
 You can find additional images, videos, and graphs in the `Testing` folder within the main project repository.
