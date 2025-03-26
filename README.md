@@ -174,7 +174,7 @@ The CanSat is equipped with a **semi-spherical parachute** made of **ripstop nyl
 
 This section provides a deep dive into the hardware components selected for the EcoMaros CanSat, explaining the rationale behind their choices and key specifications.
 
-### 1️⃣ Main Board <a name="main-board"></a>
+### 1️⃣ Main Board
 
 *   **Component:** Adafruit Feather M0 Adalogger
 *   **Microcontroller:** ATSAMD21G18 ARM Cortex M0+
@@ -185,7 +185,7 @@ This section provides a deep dive into the hardware components selected for the 
     *   **Compact Form Factor:** Fits well within the CanSat's size constraints.
 *   **Role:** The central processing unit, managing all sensor data acquisition, processing, and transmission. It controls power distribution and ensures synchronized operation of all subsystems.
 
-### 2️⃣ Sensors <a name="sensors"></a>
+### 2️⃣ Sensors
 
 *   We selected the following sensors for our primary and secondary missions:
 
